@@ -1,0 +1,48 @@
+﻿<h1>IP paieška</h1>
+
+<form method="post" action="{{ path('ip_check') }}">
+    <input type="text" name="ip" placeholder="Įveskite IP adresą">
+    <button type="submit">Siųsti</button>
+</form>
+
+{% if ipInfo is defined %}
+    <h2>Rezultatas:</h2>
+
+    <table border="1" cellpadding="5" cellspacing="0">
+        <thead>
+            <tr>
+                <th>IP</th>
+                <th>Type</th>
+                <th>Continent Code</th>
+                <th>Continent Name</th>
+                <th>Country Code</th>
+                <th>Country Name</th>
+                <th>Region Code</th>
+                <th>Region Name</th>
+                <th>City</th>
+                <th>Zip Code</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ ipInfo.ip }}</td>
+                <td>{{ ipInfo.type }}</td>
+                <td>{{ ipInfo.continentCode }}</td>
+                <td>{{ ipInfo.continentName }}</td>
+                <td>{{ ipInfo.countryCode }}</td>
+                <td>{{ ipInfo.countryName }}</td>
+                <td>{{ ipInfo.regionCode }}</td>
+                <td>{{ ipInfo.regionName }}</td>
+                <td>{{ ipInfo.city }}</td>
+                <td>{{ ipInfo.zip }}</td>
+                <td>{{ ipInfo.latitude }}</td>
+                <td>{{ ipInfo.longitude }}</td>
+                <td>{{ ipInfo.date|date('Y-m-d H:i:s') }}</td>
+
+            </tr>
+        </tbody>
+    </table>
+{% endif %}
